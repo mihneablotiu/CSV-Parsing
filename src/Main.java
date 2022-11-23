@@ -12,10 +12,11 @@ public class Main {
 
             BufferedReader reader = new BufferedReader(new FileReader(file));
             readAndSplitInput(reader, parsedList);
-            for (int i = 0; i < parsedList.size(); i++) {
-                System.out.println(parsedList.get(i));
-            }
             reader.close();
+
+            Input inputToBeInterpreted = new Input(parsedList);
+            System.out.println(inputToBeInterpreted.earliestCheckInDate(true));
+            System.out.println(inputToBeInterpreted.earliestCheckInDate(false));
         } catch (IOException e) {
             System.out.println("Error at opening the input file");
             e.printStackTrace();
@@ -56,8 +57,9 @@ public class Main {
     }
 
     private static void constructParsedList(ArrayList<String> splitList, ArrayList<InputFormat> parsedList, Integer currentRow) {
-        if (splitList.get(2).equals("") || splitList.get(3).equals("") || splitList.get(4).equals("") || splitList.get(8).equals("")) {
-            System.out.println("The row does not contain the necessary information so we cannot take it into consideration");
+        if (splitList.get(Constants.STREET).equals("") || splitList.get(Constants.ZIP).equals("") || splitList.get(Constants.LAST_CHECK_IN_DATE).equals("")
+                || splitList.get(Constants.COMPANY).equals("")) {
+            System.out.println("The row: " + currentRow + " does not contain the necessary information so we cannot take it into consideration");
             return;
         }
 
@@ -73,8 +75,10 @@ public class Main {
             }
         }
 
-        InputFormat newInput = new InputFormat(currentInput.get(0), currentInput.get(1), currentInput.get(2), currentInput.get(3), currentInput.get(4),
-                                               currentInput.get(5), currentInput.get(6), currentInput.get(7), currentInput.get(8), currentInput.get(9));
+        InputFormat newInput = new InputFormat(currentInput.get(Constants.FIRST_NAME), currentInput.get(Constants.LAST_NAME), currentInput.get(Constants.STREET),
+                                               currentInput.get(Constants.ZIP), currentInput.get(Constants.CITY), currentInput.get(Constants.TYPE),
+                                               currentInput.get(Constants.LAST_CHECK_IN_DATE), currentInput.get(Constants.JOB), currentInput.get(Constants.PHONE),
+                                               currentInput.get(Constants.COMPANY));
 
         parsedList.add(newInput);
     }

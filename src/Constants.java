@@ -5,9 +5,9 @@ public class Constants {
     public static final Integer ZIP = 3;
     public static final Integer CITY = 4;
     public static final Integer TYPE = 5;
-    public static final Integer JOB = 6;
-    public static final Integer PHONE = 7;
-    public static final Integer LAST_CHECK_IN_DATE = 8;
+    public static final Integer LAST_CHECK_IN_DATE = 6;
+    public static final Integer JOB = 7;
+    public static final Integer PHONE = 8;
     public static final Integer COMPANY = 9;
 }
 
