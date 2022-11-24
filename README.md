@@ -71,3 +71,9 @@ other similar example:
   * make
   * make run
   * give the name of the input file
+  
+Example: (all these commands are given by being in the src directory)
+  * $ make
+  * $ make run -> java Main
+  * input.csv
+  * $ make clean
