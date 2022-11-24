@@ -67,7 +67,7 @@ public class InputFormat {
 
     @Override
     public String toString() {
-        return "InputFormat{" +
+        return "Customer {" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", street='" + street + '\'' +
