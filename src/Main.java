@@ -25,8 +25,8 @@ public class Main {
             reader.close();
 
             Input inputToBeInterpreted = new Input(parsedList);
-            System.out.println("\nThe customer with the earliest check in date is: " + inputToBeInterpreted.earliestCheckInDate(true));
-            System.out.println("\nThe customer with the latest check in date is: " + inputToBeInterpreted.earliestCheckInDate(false));
+            System.out.println("The customer with the earliest check in date is: " + inputToBeInterpreted.earliestCheckInDate(true));
+            System.out.println("The customer with the latest check in date is: " + inputToBeInterpreted.earliestCheckInDate(false));
 
             System.out.println("\nThis is the list with the users full name ordered alphabetically");
             Input alphabeticalSortedList = new Input(inputToBeInterpreted.getCustomersListSortedByFullName());
