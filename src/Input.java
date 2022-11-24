@@ -25,6 +25,7 @@ public class Input {
      * @return the customer with the earliest check in date or the latest check in date
      */
     public final InputFormat earliestCheckInDate(final boolean earliestCheckinDate) {
+        System.out.println('\n');
         ArrayList<InputFormat> newMatchedDates = new ArrayList<>();
 
         for (int i = 0; i < this.inputList.size(); i++) {
