@@ -1,13 +1,23 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
+    /**
+     * The main function that reads the input file from the keyboard, calls the parser for the file
+     * and returns the required information (the customer with the earliest check in date, the
+     * customer with the latest check in date, the list of customers sorted alphabetically by their
+     * full name and the list of customers sorted by their jobs alphabetically)
+     * @param args the command line arguments (they don't exist in this implementation)
+     */
     public static void main(String[] args) {
         try {
-            String file = "C:\\Users\\mblot\\Desktop\\CSV-Parsing\\src\\input.csv";
+            Scanner scanner = new Scanner(System.in);
+            String file = scanner.nextLine();
+            scanner.close();
+
             ArrayList<InputFormat> parsedList = new ArrayList<>();
 
             BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -26,11 +36,18 @@ public class Main {
             Input jobsSortedList = new Input(inputToBeInterpreted.getCustomersListSortedByJob());
             jobsSortedList.visualizeList();
         } catch (IOException e) {
-            System.out.println("Error at opening the input file");
-            e.printStackTrace();
+            System.out.println("Error at opening the input file. Check the path to the file.\n");
         }
     }
 
+    /**
+     * The function that reads the input file and parses it into string tokens (full or empty)
+     * depending on the fact that a current field exists or not in the input file
+     * @param reader the reader from the input file
+     * @param parsedList the parsed list of InputFormat elements (just passed to the construct
+     *                   function at each row)
+     * @throws IOException the exception that can be thrown by the .readLine method
+     */
     private static void readAndSplitInput(BufferedReader reader, ArrayList<InputFormat> parsedList) throws IOException {
         String currentLine;
         int currentRow = 0;
@@ -64,6 +81,12 @@ public class Main {
         }
     }
 
+    /**
+     * The function that gets the list of tokens and constructs the list of InputFormats
+     * @param splitList the list of tokens
+     * @param parsedList the list of InputFormats
+     * @param currentRow the number of the current row
+     */
     private static void constructParsedList(ArrayList<String> splitList, ArrayList<InputFormat> parsedList, Integer currentRow) {
         if (splitList.get(Constants.STREET).equals("") || splitList.get(Constants.ZIP).equals("") || splitList.get(Constants.LAST_CHECK_IN_DATE).equals("")
                 || splitList.get(Constants.COMPANY).equals("")) {

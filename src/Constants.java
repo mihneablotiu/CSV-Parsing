@@ -1,3 +1,6 @@
+/**
+ * The constants class used for each field in the CSV file
+ */
 public class Constants {
     public static final Integer FIRST_NAME = 0;
     public static final Integer LAST_NAME = 1;
@@ -11,6 +14,9 @@ public class Constants {
     public static final Integer COMPANY = 9;
 }
 
+/**
+ * The string constants equivalent to the constants above
+ */
 enum StringConstants {
     FIRST_NAME, LAST_NAME, STREET, ZIP, CITY, TYPE,
     LAST_CHECK_IN_DATE, JOB, PHONE, COMPANY
